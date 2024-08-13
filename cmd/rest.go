@@ -124,10 +124,10 @@ func addRateLimiter(e *echo.Echo) {
 			id := ctx.RealIP()
 			return id, nil
 		},
-		ErrorHandler: func(context echo.Context, err error) error {
+		ErrorHandler: func(context echo.Context, _ error) error {
 			return context.JSON(http.StatusForbidden, nil)
 		},
-		DenyHandler: func(context echo.Context, identifier string, err error) error {
+		DenyHandler: func(context echo.Context, _ string, _ error) error {
 			return context.JSON(http.StatusTooManyRequests, nil)
 		},
 	}

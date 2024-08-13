@@ -11,7 +11,7 @@ type Monitoring struct {
 	sentry *sentry.Client
 }
 
-func Init(e *echo.Echo, dsn, machine, environment string) *Monitoring {
+func Init(_ *echo.Echo, dsn, machine, environment string) *Monitoring {
 	// skip if the "machine" is not set
 	if machine == "" {
 		fmt.Printf("⚡️ [monitoring]: machine is not set \n")

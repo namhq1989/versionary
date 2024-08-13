@@ -12,6 +12,7 @@ email_already_existed = "Email already existed"
 invalid_id = "Invalid id"
 invalid_name = "Invalid name"
 invalid_email = "Invalid email"
+invalid_code = "Invalid code"
 
 # auth
 auth_invalid_auth_token = "Invalid auth token"
@@ -24,3 +25,9 @@ auth_not_allowed = "Not allowed"
 user_invalid_id = "Invalid user id"
 user_not_found = "User not found"
 
+# widget
+widget_invalid_id = "Invalid widget id"
+widget_not_found = "Widget not found"
+widget_invalid_version = "Invalid widget version"
+widget_invalid_homepage_url = "Invalid homepage url"
+widget_invalid_release_note_url = "Invalid release note url"

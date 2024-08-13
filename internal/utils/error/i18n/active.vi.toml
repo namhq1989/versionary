@@ -12,6 +12,7 @@ email_already_existed = "Email đã tồn tại"
 invalid_id = "ID không hợp lệ"
 invalid_name = "Tên không hợp lệ"
 invalid_email = "Email không hợp lệ"
+invalid_code = "Mã không hợp lệ"
 
 # auth
 auth_invalid_auth_token = "Token xác thực không hợp lệ"
@@ -23,3 +24,10 @@ auth_not_allowed = "Không được phép"
 # user
 user_invalid_id = "ID người dùng không hợp lệ"
 user_not_found = "Không tìm thấy người dùng"
+
+# widget
+widget_invalid_id = "ID tiện ích không hợp lệ"
+widget_not_found = "Không tìm thấy tiện ích"
+widget_invalid_version = "Phiên bản không hợp lệ"
+widget_invalid_homepage_url = "Trang chủ không hợp lệ"
+widget_invalid_release_note_url = "Ghi chú phát hành không hợp lệ"

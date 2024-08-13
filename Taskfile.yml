@@ -1,0 +1,45 @@
+version: '3'
+
+tasks:
+  install-tools:
+    cmds:
+      - echo "installing tools"
+      - go install google.golang.org/protobuf/cmd/protoc-gen-go
+      - go install google.golang.org/grpc/cmd/protoc-gen-go-grpc
+      - echo "done"
+
+  code-gen:
+    cmds:
+      - echo "running code generation"
+      - go generate ./...
+      - echo "done"
+
+  run:
+    cmds:
+      - doppler run -- go run cmd/*.go
+
+  mock-gen:
+    cmds:
+      - echo "running mock generation"
+
+      # user
+      - mockgen -source=pkg/user/domain/user.go -destination=internal/mock/user/user.go -package=mockuser
+      - mockgen -source=pkg/user/domain/user_hub.go -destination=internal/mock/user/user_hub.go -package=mockuser
+
+      - echo "done"
+
+  test:
+    dotenv: ['.env.test']
+    cmds:
+      - gotestsum --junitfile-hide-empty-pkg --format testname ./pkg/...
+
+  test-coverage:
+    dotenv: ['.env.test']
+    cmds:
+      - gotestsum --format testname -- -coverprofile=coverrage.out ./pkg/... && \
+      - go tool cover -html=coverrage.out -o coverage.html
+
+  test-debug:
+    dotenv: ['.env.test']
+    cmds:
+      - go test -v ./pkg/...

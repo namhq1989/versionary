@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package userpb;
+
+import "userpb/message.proto";
+
+service UserService {
+  rpc FindUserByID(FindUserByIDRequest) returns (FindUserByIDResponse) {}
+  rpc FindUserByEmail(FindUserByEmailRequest) returns (FindUserByEmailResponse) {}
+  rpc CreateUser(CreateUserRequest) returns (CreateUserResponse) {}
+}
+
+// FIND USER BY ID
+
+message FindUserByIDRequest {
+  string id = 1;
+}
+
+message FindUserByIDResponse {
+  User user = 1;
+}
+
+
+// FIND USER BY EMAIL
+
+message FindUserByEmailRequest {
+  string email = 1;
+}
+
+message FindUserByEmailResponse {
+  User user = 1;
+}
+
+// CREATE USER
+
+message CreateUserRequest {
+  string name = 1;
+  string email = 2;
+  string timezone = 3;
+  string providerSource = 4;
+  string providerUid = 5;
+}
+
+message CreateUserResponse {
+  string id = 1;
+}
